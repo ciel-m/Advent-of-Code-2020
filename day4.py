@@ -37,9 +37,6 @@ valid = 0
 for p in passports:
     currPassport = p.split()
     fieldval = [f.split(":") for f in currPassport]
-    print(fieldval)
     if all([check(x[0], x[1]) for x in fieldval]) and ("byr" in p and "iyr" in p and "eyr" in p and "hgt" in p and "hcl" in p and "ecl" in p and "pid" in p):
-        print("True")
         valid +=1
-    else: print(len(fieldval))
 print(valid)
