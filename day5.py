@@ -9,7 +9,6 @@ def findRow(s):
     return hi if s[-1] == "B" else lo
 
 def findCol(s):
-
     hi, lo = 7, 0
     for eachChar in s[:-1]:
         if eachChar == "L":
@@ -23,4 +22,13 @@ def findSeatId(s):
     col = s[7:]
     return findRow(row) * 8 + findCol(col)
 
-print(max([findSeatId(x.strip()) for x in f]))
+# partone
+#print(max([findSeatId(x.strip()) for x in f]))
+seats = sorted([findSeatId(x.strip()) for x in f])
+# check all ids by printing
+start = 12
+for eachSeat in seats:
+    # first seat missing is your seat
+    if start != eachSeat:
+        print(start)
+    start += 1
